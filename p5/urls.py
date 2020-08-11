@@ -25,4 +25,5 @@ urlpatterns = [
     path('myapp/',include("myapp.urls")),
     path('get_demo/',views.get_demo,name="get_demo"),
     path('post_demo/',views.post_demo,name="post_demo"),
+    path('register/',views.register,name="register"),
 ]
