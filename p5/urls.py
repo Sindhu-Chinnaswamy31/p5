@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path,include
 import myapp
 from myapp import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +28,9 @@ urlpatterns = [
     path('get_demo/',views.get_demo,name="get_demo"),
     path('post_demo/',views.post_demo,name="post_demo"),
     path('register/',views.register,name="register"),
+    path('multi/',views.multi,name="multiselect"),
+    path('img/',views.img_upld,name="img"),
 ]
+
+if settings.DEBUG==True:
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT) 
