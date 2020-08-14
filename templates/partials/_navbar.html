@@ -1,12 +1,14 @@
-<!--nav bar-->
-<div class="container">
-        <ul class="nav">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'home' %}">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'myapp:profile' %}">Profile</a>
-            </li>
-            
-          </ul>
-    </div>
+  
+<!-- navbar -->
+  <div class="container">
+    <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'myapp:profile' %}">Profile</a>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'myapp:register' %}">Register</a>
+        </li>      
+    </ul>
+</div>
