@@ -60,7 +60,7 @@ from django.core.files.storage import FileSystemStorage
 def img_upld(request):
     return render(request,"img_upld.html")
 
-from myapp.utilities import store_image
+from myapp.utilities import store_Image
 def img_display(request):
     file_url=False
     if request.method=="POST" and request.FILES:
@@ -72,5 +72,26 @@ def img_display(request):
 
 from myapp import forms
 def builtin(request):
+    if request.method=="POST":
+        form=forms.SampleForm(request.POST,request.FILES)
+        if form.is_valid():
+            First_Name=form.cleaned_data.get('First_Name')
+            Last_Name=form.cleaned_data.get('Last_Name')
+            Email=form.cleaned_data.get('Email')
+            PhoneNumber=form.cleaned_data.get('PhoneNumber')
+            Password=form.cleaned_data.get('Password')
+            birth_day=form.cleaned_data.get('birth_day')
+            birth_month=form.cleaned_data.get('birth_month')
+            birth_year=form.cleaned_data.get('birth_year')
+            Gender=form.cleaned_data.get('Gender')
+            Prog_Languages=form.cleaned_data.get('Prog_Languages')
+            Languages=form.cleaned_data.get('Languages')
+            Image=form.cleaned_data.get('Image')
+            store_Image(Image)
+            data=form.cleaned_data
+            return render(request,"display_data.html",context=data)
     form=forms.SampleForm()
     return render(request,"builtin.html",{'form':form})
+
+#forms is a file or a library 
+#in forms Form is a class so we inherit from forms.Form
